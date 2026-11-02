@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <from>
+        <P>
+            <label for="name">고객명 :</label>
+            <input type="text" name="name" id="name" placeholder=" "> <br><br>
+            <label for="phone">전화번호 :</label>
+            <input type="tel" name="phone" id="phone" placeholder=" "> <br><br>
+            <label for="mail">E-mail :</label>
+            <input type="email" name="mail" id="mail" placeholder=" ">
+        </P>
+        <p>
+            <label for="selectpizza">피자선택 :</label>
+            <select id="selectpizza">
+                <option disabled selected>피자를 선택하세요</option>
+                <option>하와이안</option>
+                <option>불고기</option>  
+                <option>쉬림프</option> 
+            </select>
+        </p>
+    
+        <p>
+            <fieldset>
+                <legend>피자 사이즈</legend>
+                <label><input type="radio" name="size"> Small</label><br><br>
+                <label><input type="radio" name="size"> Medium</label><br><br>
+                <label><input type="radio" name="size"> Large</label>
+            </fieldset>
+    
+            <fieldset>
+                <legend>토핑 선택</legend>
+                <label><input type="checkbox" name="topping"> 베이컨</label><br><br>
+                <label><input type="checkbox" name="topping"> 치즈</label><br><br>
+                <label><input type="checkbox" name="topping"> 양파</label><br><br>
+                <label><input type="checkbox" name="topping"> 버섯</label>
+            </fieldset>
+        </p>
+    
+        <P>
+            <label for="time">희망배송시간 :</label>
+            <input type="time" name="time" id="time" placeholder="--:--:--">   
+        </P>
+
+        <p>
+            <label>배송시요청사항:</label>
+            <textarea></textarea>
+        </p>
+            <!-- <button>주문하기</button>
+            <input type="button" value="주문완료"> -->
+            <input type="submit" value="주문완료">
+    </from>
+    
+</body>
+</html>
