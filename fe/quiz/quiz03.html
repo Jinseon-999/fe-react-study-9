@@ -13,47 +13,67 @@
 
 </head>
 <body>
-    <from>
+    <!-- submit 이 발생했는지는 네이버 페이지 -->
+    <form action="https://www.naver.com">
         <P>
             <label for="id">사용자 ID :</label>
             <input type="text" name="id" id="id" placeholder=" ">   
+            
             <br>
+            
             <label for="ps">비밀 번호 :</label>
-            <input type="password" name="ps" id="ps" placeholder=" "> <input type="submit" value="완료">
+            <input type="password" name="ps" id="ps" placeholder=" "> 
+            <!-- <button type="button">완료</button> -->
+            <input type="button" value="완료">
         </P>
         <p>
             <select>
-                <option>짬뽕</option>
                 <option>짜장면</option>
+                <option selected>짬뽕</option>
                 <option>탕수육</option>
             </select>
+            
             <br>
-            <label><input type="checkbox"> 짜장면</label>
-            <label><input type="checkbox"> 짬뽕</label>
-            <label><input type="checkbox"> 탕수육</label>
+            
+            <label>짜장면<input type="checkbox"></label>
+            <label >짬뽕<input type="checkbox" checked></label>
+            <label>탕수육<input type="checkbox"></label>
+            
             <br>
+            
             <label for="name">이름 :</label>
             <input type="text" name="name" id="name" placeholder=" ">   
+            
             <br>
+            
             <label for="psw">암호 :</label>
             <input type="password" name="psw" id="psw" placeholder=" "> 
+            
             <br>
+            
             <label for="myself">자소서 :</label>
             <textarea name="myself" id="myself" placeholder="이곳에 자기소개서 작성" rows="5"></textarea>
         </P>
         <P>
             <label for="search">검색:</label>
             <input type="text" name="search" id="search" placeholder=" "> 
-            <input type="submit" value="Q1"> <input type="submit" value="Q2">
+            <button type="button">Q1</button> 
+            <input type="button" value="Q2">
+            
             <br>
+            
             <label for="sub">submit 버튼:</label>
-            <input type="submit" value="전송1"> <input type="submit" value="전송2">
+            <button type="submit">전송1</button> 
+            <input type="submit" value="전송2">
+            
             <br>
+            
             <label for="reset">reset 버튼:</label>
-            <input type="submit" value="리셋1"> <input type="submit" value="리셋2">
+            <button type="reset">리셋1</button> 
+            <input type="reset" value="리셋2">
+            
             <br>
         </P>
-
     </from>
 
 
