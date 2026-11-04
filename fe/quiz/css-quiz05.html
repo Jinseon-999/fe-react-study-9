@@ -7,52 +7,87 @@
 
         <style>
         
-        *   {
-            margin:0;
-            padding:0;
-            box-sizing: border-box;
+            *   {
+                margin:0;
+                padding:0;
+                box-sizing: border-box;
+                }
+
+            .container {
+                margin: 0 auto;
+                margin-top: 50px;
+                width: 500px;
+                position:relative;
+                text-align:center;
+
             }
 
-        .container {
-            margin: 0 auto;
-            width: 500px;
-            top: 50px;
-            position:relative;
-            text-align:center;
+            /* case1
 
-        }
+            .red-box {
+                background-color: red;
+                width: 250px;
+                height: 100px;
+                display:inline-block;
+            }
 
-        .red-box {
-            background-color: red;
-            width: 250px;
-            height: 100px;
-            position:relative;
-        }
+            .green-box {
+                background-color: green;
+                width: 250px;
+                height: 100px;
+                display:inline-block;
+            }
 
-        .green-box {
-            background-color: green;
-            width: 250px;
-            height: 100px;
-            position:absolute;
-            left: 250px;
-            top: 0px;
-        }
+            .blue-box {
+                background-color: blue;
+                width: 500px;
+                height: 200px;
+            } */
 
-        .blue-box {
-            background-color: blue;
-            width: 500px;
-            height: 200px;
-            position:relative;
-        }
+            .red-box {
+                background-color: red;
+                width: 250px;
+                height: 100px;
+                position:relative;
+            }
+
+            .green-box {
+                background-color: green;
+                width: 250px;
+                height: 100px;
+                position:absolute;
+                left: 250px;
+                top: 0px;
+            }
+
+            .blue-box {
+                background-color: blue;
+                width: 500px;
+                height: 200px;
+                position:relative;
+            }
+
+            .text-box {
+                text-align: center;
+                background-color: white;
+            }
+
         </style>
         
 </head>
 <body>
     
+    <!-- case1
+    <div class="container">
+        <div class="red-box">
+        </div><div class="green-box"></div>
+        <div class="text-box">글자가운데정렬</div>
+        <div class="blue-box"></div> -->
+
     <div class="container">
         <div class="red-box"></div>
         <div class="green-box"></div>
-        <div>글자가운데정렬</div>
+        <div class="text-box">글자가운데정렬</div>
         <div class="blue-box"></div>
     </div>
 
