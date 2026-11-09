@@ -96,13 +96,15 @@ let num = 3;
 let age = 2026 - year + 1;
 
 if( year >= 1900 && year < 2000){ // 출생년도가 1900~1999 일때
-    if(num == 1){console.log( age + "살 남자입니다.")} //남자 
-        else{console.log(age + "살 여자입니다.")} //여자
+    if(num > 0 && num <5){
+        if(num == 1){console.log( age + "살 남자입니다.")} //남자 
+            else{console.log(age + "살 여자입니다.")} //여자
 
-    } else if ( year >= 2000 && year < 2027){ //출생년도가 2000~2026 일때
-        if(num == 3){console.log(age + "살 남자입니다.")} //남자 
-        else{console.log(age + "살 여자입니다.")} //여자
-        
+        } else if ( year >= 2000 && year < 2027){ //출생년도가 2000~2026 일때
+            if(num == 3){console.log(age + "살 남자입니다.")} //남자 
+            else{console.log(age + "살 여자입니다.")} //여자
+    }else{console.log("잘못된 입력입니다.")}    
+    
 } else { console.log("잘못된 입력입니다.")}
 
 // let year = 1999;
@@ -131,4 +133,19 @@ if( year >= 1900 && year < 2000){ // 출생년도가 1900~1999 일때
 //         if(num == 3){console.log(age + "살 남자입니다.")} //남자 
 //         else{console.log(age + "살 여자입니다.")} //여자
         
+// } else { console.log("잘못된 입력입니다.")}
+
+// let year = 2000;
+// let num = 5;
+// let age = 2026 - year + 1;
+// if( year >= 1900 && year < 2000){ // 출생년도가 1900~1999 일때
+//     if(num > 0 && num <5){
+//         if(num == 1){console.log( age + "살 남자입니다.")} //남자 
+//             else{console.log(age + "살 여자입니다.")} //여자
+
+//         } else if ( year >= 2000 && year < 2027){ //출생년도가 2000~2026 일때
+//             if(num == 3){console.log(age + "살 남자입니다.")} //남자 
+//             else{console.log(age + "살 여자입니다.")} //여자
+//     }else{console.log("잘못된 입력입니다.")}    
+    
 // } else { console.log("잘못된 입력입니다.")}
