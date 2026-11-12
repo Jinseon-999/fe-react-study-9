@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    *{  margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+    
+    .container{
+        width: 500px;
+        height: 480px;
+        background-color: rgb(2, 65, 2);
+        margin : 0 auto;
+}
+    .header{
+        font-size: 30px;
+        color: white;
+        margin: 10px;
+        padding-top: 20px;
+        text-align: center;
+    }
+
+    .user{
+        width: 420px;
+        height: 60px;
+        margin: 50px auto;
+    }
+
+    .user input{
+        width: 100%;
+        height: 100%;
+        background-color: rgb(2, 65, 2);
+        border: 1px solid white;
+        font-size: 30px;
+    }
+
+    #login{
+        width:420px;
+        height:100px;
+        margin: 50px;
+        
+        display:flex;
+        background-color: darkcyan;
+        font-size: 70px;
+        margin: 50px auto;
+    }
+
+    #login input{
+        width: 100%;
+        height: 100%;
+        background-color: darkcyan;
+        color: white;
+        font-size: 40px;
+        border:0;
+    }
+</style>
+<body>
+    <form action="main.html">
+        <div class="container">
+            <!-- header -->
+            <div class="header">Welcome Back!</div>
+
+            <!-- main -->
+            <div class="userBox">
+                <div class="user"><input type="email" placeholder="Email Address*"></div>
+                <div class="user"><input type="password" placeholder="Password*"></div>
+            </div>
+            <!-- foot -->
+            <div id="login"><input type="submit" value="LOG IN"></div>
+        </div>
+    </form>
+
+</body>
+</html>
