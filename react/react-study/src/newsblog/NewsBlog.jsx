@@ -14,7 +14,8 @@ function NewsBlog(){
     
     let [news, setNews] = useState(["어제의 뉴스", "오늘의 뉴스", "내일의 뉴스"]);
 
-    let [likeCount, setlikeCount] = useState(0);
+    //let [likeCount, setlikeCount] = useState(0):
+    let [likeCountArr, setLikeCountArr] = useState([0,0,0]);
 
     let [modalFlag, setModalFlag] = useState(false);
 
@@ -25,7 +26,29 @@ function NewsBlog(){
                 {/* <h3>Blog Header</h3> */}
                 <div style={{color:"orange", fontSize:"20px"}}>React Study</div>
             </div>
+            
+            {
+                news.map((item, index) => {
+                    return(
+                    <div className="post-list">
+                        <h4 onClick={()=>{
+                            setModalFlag( !modalFlag );
+                            }}>{news[index]}<span onClick={(event)=>{
+                                    event.stopPropagation(); 
+                                    let temp = [...likeCountArr];
+                                    temp[index] += 1;
+                                    setlikeCountArr(temp); //재랜더링 조건 충족                            
+                                }}>♥</span> {likeCountArr[index]}</h4>
+                        <p>내용</p>
+                    </div>
 
+                    )
+                })
+            }
+            
+
+
+            {/*
             <div className="post-list">
                 <h4 onClick={()=>{
                     // modalFlag 값 변경
@@ -45,21 +68,50 @@ function NewsBlog(){
                 }}>{news[0]}   <span onClick={(event)=>{
                                     // event.preventDefault(); 발생하는 이벤트의 기본 수행을 막는다.
                                     event.stopPropagation(); //이벤트 발생을 추가로 전파/전달 하는것을 stop!
-                                    setlikeCount(likeCount+1); // 재랜더링
-                                }}>♥</span> {likeCount} </h4>
+                                    //setlikeCount(likeCount+1); // 재랜더링
+
+                                    //likeCountArr 배열에서 현재 이 뉴스를 나타내는 인덱스의 값+ 1
+                                    // 배열[0] +1 -> 값 증가 -> 재랜더링 값증가 표시
+                                    // 배열 깊은복사 -> 새로운 배열값 -> set함수를 통해서 ...
+
+                                    let temp = [...likeCountArr];
+                                    temp[0] += 1;
+                                    setLikeCountArr(temp); //재랜더링 조건 충족
+
+                                }}>♥</span> {likeCountArr[0]} </h4>
                 <p>내용</p>
             </div>
 
             <div className="post-list">
-                <h4>{news[1]}</h4>
+                <h4 onClick={()=>{
+                    setModalFlag( !modalFlag );
+                }}>{news[1]} <span onClick={(event)=>{
+                                    // event.preventDefault(); 발생하는 이벤트의 기본 수행을 막는다.
+                                    event.stopPropagation(); //이벤트 발생을 추가로 전파/전달 하는것을 stop!
+
+                                    let temp = [...likeCountArr];
+                                    temp[1] += 1;
+                                    setLikeCountArr(temp); //재랜더링 조건 충족
+                                    
+                                }}>♥</span> {likeCountArr[1]} </h4>
                 <p>내용</p>
             </div>
 
             <div className="post-list">
-                <h4>제목</h4>
+                <h4 onClick={()=>{
+                    setModalFlag( !modalFlag );
+                    }}>{news[2]}<span onClick={(event)=>{
+                                    // event.preventDefault(); 발생하는 이벤트의 기본 수행을 막는다.
+                                    event.stopPropagation(); //이벤트 발생을 추가로 전파/전달 하는것을 stop!
+
+                                    let temp = [...likeCountArr];
+                                    temp[2] += 1;
+                                    setLikeCountArr(temp); //재랜더링 조건 충족
+                                    
+                                }}>♥</span> {likeCountArr[2]} </h4>
                 <p>내용</p>
             </div>
-
+            */}
 
             {
                 // modalFlag == true ? <Modal/> : null
@@ -68,6 +120,7 @@ function NewsBlog(){
             {
                 modalFlag && <Modal/>
             }
+
 
         </div>
 
