@@ -16,8 +16,15 @@ function NewsBlog(){
 
     //let [likeCount, setlikeCount] = useState(0):
     let [likeCountArr, setLikeCountArr] = useState([0,0,0]);
+    // 각 뉴스별 좋아요 갯수를 관리 
 
     let [modalFlag, setModalFlag] = useState(false);
+
+    // 뉴스를 눌렀을때 Modal 창에 전달할 정보를 저장할 변수
+    let [selectedTitle, setSelectedTitle] = useState('');
+    let [selectedLikeCount, setSelectedLikeCount] = useState(0);
+
+
 
     return(
         <div>
@@ -27,17 +34,23 @@ function NewsBlog(){
                 <div style={{color:"orange", fontSize:"20px"}}>React Study</div>
             </div>
             
+
+
             {
                 news.map((item, index) => {
                     return(
                     <div className="post-list">
                         <h4 onClick={()=>{
-                            setModalFlag( !modalFlag );
-                            }}>{news[index]}<span onClick={(event)=>{
+
+                            setSelectedTitle(item); // 제목전달
+                            setSelectedLikeCount(likeCountArr[index]); // 좋아요 갯수 전달
+                            // 어떤뉴스 눌렀는지 title, likeCount -> state 변수저장 -> Modal props 전달
+                            setModalFlag( !modalFlag ); // 모달창 표시여부 true/false
+                        }}>{news[index]}<span onClick={(event)=>{
                                     event.stopPropagation(); 
                                     let temp = [...likeCountArr];
                                     temp[index] += 1;
-                                    setlikeCountArr(temp); //재랜더링 조건 충족                            
+                                    setLikeCountArr(temp); //재랜더링 조건 충족                            
                                 }}>♥</span> {likeCountArr[index]}</h4>
                         <p>내용</p>
                     </div>
@@ -46,6 +59,15 @@ function NewsBlog(){
                 })
             }
             
+
+            <div>
+                <button onClick={()=>{
+                    let temp = [...news];
+                    temp[0] = "Today 긴급 속보!!!";
+                    setNews(temp);
+                }}>긴급제목변경</button>
+            </div>
+
 
 
             {/*
@@ -118,7 +140,8 @@ function NewsBlog(){
             }
 
             {
-                modalFlag && <Modal/>
+                modalFlag && <Modal title={selectedTitle} likeCount={selectedLikeCount}
+                                    news={news} setNews={setNews} bgColor="lightblue"/>
             }
 
 
