@@ -24,6 +24,8 @@ function NewsBlog(){
     let [selectedTitle, setSelectedTitle] = useState('');
     let [selectedLikeCount, setSelectedLikeCount] = useState(0);
 
+    // input 요소에서 입력된 값을 저장하는 용도
+    let [inputText, setInputText] = useState('');
 
 
     return(
@@ -134,6 +136,37 @@ function NewsBlog(){
                 <p>내용</p>
             </div>
             */}
+
+            <div>
+                <input type="text" id="input_news_title" value={inputText} onChange={(event)=>{
+                    //매개변수 event : 키보드 이벤트정보
+                    //event.target 이벤트가 발생한 요소 접근
+
+                    //  input 창에서 입력이 발생 -> onChange 이벤트에 등록된 함수 수행 -> value 값을 state 변수에 저장해둠
+                    
+                    console.log(event.target. value);
+                    setInputText(event.target. value);
+                }}/>
+
+                <button onClick={()=>{
+
+                    /*
+                        const input_nt = document.getElementById("input_news_title");
+                        let title = input_nt.value;
+                        배열.push(title)
+
+                        input_nt.value = '';
+                    */
+                    
+                    // input에서 입력되어 저장된 state 변수값 -> news 배열에 추가등록 -> 재랜더링 + 화면에 표시
+                    let temp= [...news];
+                    temp.push( inputText );
+                    setNews(temp);
+
+                    setInputText('');   // 입력값 저장하는 inputText state 변수에 값을 초기화(clean)
+                    
+                }}>뉴스발행</button>
+            </div>
 
             {
                 // modalFlag == true ? <Modal/> : null
