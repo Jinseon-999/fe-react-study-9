@@ -158,6 +158,35 @@ function NewsBlog(){
                         input_nt.value = '';
                     */
                     
+                    // 1. 입력 된 값이 발행되는 것 막기
+                    // 입력된 값이 없으면 ?
+                    /*if(inputext != ""){
+                        let temp= [...news];
+                        temp.push( inputText );
+                        setNews(temp);
+
+                        setInputText('');
+                    }*/
+
+                        
+                    //사전 필터링 패턴
+
+                    // 문자 앞뒤에 있는 공백(띄어쓰기) 제거
+                    // 띄어쓰기만 있을때 등록을 방지
+                    // trim() : 문자열 앞뒤에 있는 공백을 제거
+
+                    // " abd ".trim() -> "abc"      " abc".trim() -> "abc"
+
+                    // 공백제거
+                    inputText = inputText.trim()
+
+                    if(inputText == ''){
+                        alert("값을 입력하세요"); // 브라우저한테 경고창을 띄워라 기능의 함수
+                        setInputText(''); // 입력칸 초기화 (띄어쓰기 밖에 없음 | 아무것도 입력안한상태)
+                        return;
+                    }
+
+
                     // input에서 입력되어 저장된 state 변수값 -> news 배열에 추가등록 -> 재랜더링 + 화면에 표시
                     let temp= [...news];
                     temp.push( inputText );
@@ -165,6 +194,16 @@ function NewsBlog(){
 
                     setInputText('');   // 입력값 저장하는 inputText state 변수에 값을 초기화(clean)
                     
+                    // 2. 글 추가 시, 좋아요 숫자가 제대로 작동하지 않기 떄문에 정상화하기
+                    // > 기존에 뉴스제목 배열만 추가했기 떄문에 ...
+                    // > 뉴스제목을 추가할때, 그 뉴스의 좋아요 갯수에 해당하는 likeCountArr 도 추가
+                    
+                    // likeCountArr.unshift(0); X 위에 push 여서 새로운뉴스는 뒤에서 생기기 때문에 싱크가 밀림
+                    //likeCountArr.push(0);
+                    let temp2 = [...likeCountArr];
+                    temp2.push(0);
+                    setLikeCountArr(temp2);
+
                 }}>뉴스발행</button>
             </div>
 
