@@ -20,6 +20,7 @@ import FoodCard from "./components/FoodCard";
 import { Routes, Route, Link, useNavigate } from "react-router";
 import CustomerService from "./pages/CustomerService";
 import Home from "./pages/Home";
+import Detail from "./pages/Detail";
 
 function FoodMarket(){
 
@@ -47,12 +48,12 @@ function FoodMarket(){
                 <Container>
                 <Navbar.Brand onClick={()=>{ location.href="/";}}>FoodMarket</Navbar.Brand>
                 <Nav className="me-auto">
-                    <Nav.Link href="#home"><Link to="/">Home</Link></Nav.Link>
+                    <Link to="/">Home</Link>
                     <Nav.Link onClick={()=>{ navigate("/detail")}}>FoodDetail(상세)</Nav.Link>
                     <Nav.Link onClick={()=>{ navigate("/info")}}>Info</Nav.Link>
                     <Nav.Link onClick={()=>{ navigate("/help")}}>고객센터</Nav.Link>
 
-                    <Nav.Link><Link to="/info">고객센터</Link></Nav.Link>
+                    <Link to="/info">고객센터</Link>
                     <Nav.Link href="/help">고객센터</Nav.Link>
                 </Nav>
                 </Container>
@@ -62,6 +63,7 @@ function FoodMarket(){
             <Routes>
                 <Route path="/" element={<Home foods={foods}/>}/>
                 <Route path="/help" element={<CustomerService/>}/>
+                <Route path="/detail/:id" element={<Detail foods={foods}/>}/>
                 <Route path="/detail" element={<div><h1>Detail Page</h1></div>}/>
                 <Route path="/info" element={<div><h1>Info Page</h1></div>}/>
                 <Route path="/test" element={<div><h1>이곳은 테스트</h1></div>}/>
